@@ -5,7 +5,7 @@ app.set('view engine', 'pug');
 app.get('/', function (req, res) {
   let zone = req.query.zone || 'America/Denver'
   let date = new Date()
-  let localDate = date.toLocaleString('en-US', { timeZone: zone }).split(' ')[1]
+  let localDate = date.toLocaleString('en-US', { timeZone: zone, hour12: false }).split(' ')[1]
   if(localDate.length == 7) {
     localDate = `0${localDate}`
   }
