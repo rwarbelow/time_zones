@@ -6,9 +6,9 @@ app.get('/', function (req, res) {
   let zone = req.query.zone || 'America/Denver'
   let date = new Date()
   let localDate = date.toLocaleString('en-US', { timeZone: zone }).split(' ')[1]
-  
-  // res.send(`<p>The current time in ${zone} is ${localDate}<p><input id='timezone' /><button id='updateZone'>Update Timezone</button>`);
-  // res.render(__dirname + "/views/index.html", {localDate: localDate, zone: zone});
+  if(localDate.length == 7) {
+    localDate = `0${localDate}`
+  }
   res.render('index', { localDate: localDate, zone: zone});
 });
 app.listen(port, function () {
