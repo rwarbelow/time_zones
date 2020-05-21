@@ -1,0 +1,14 @@
+html
+  head
+    title= 'Time Zones'
+  body
+    h1= 'What time is it?'
+    p= 'It is ' + localDate + ' in ' + zone + '.'
+    input(class='zone')
+    button(class='updateZone')= 'Update Timezone'
+
+script.
+  document.querySelector(".updateZone").onclick = function () {
+    let zone = document.querySelector('.zone').value;
+    location.href = `/?zone=${zone}`;
+  };
